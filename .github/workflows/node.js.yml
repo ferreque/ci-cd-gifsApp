@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_GIPHY_API_KEY: ${{ secrets.VITE_GIPHY_API_KEY }}
 
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
