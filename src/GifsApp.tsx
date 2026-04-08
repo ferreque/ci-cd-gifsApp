@@ -9,6 +9,8 @@ import { useGifs } from './gifs/hooks/useGifs';
 export const GifsApp = () => {
   const { handleSearch, previousTerms, handleTermClicked, gifs } = useGifs();
 
+  console.log(previousTerms)
+
   return (
     <>
       {/* Header */}
