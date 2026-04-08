@@ -1,5 +1,4 @@
-import { describe, expect, test, vi } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, test } from 'vitest'
 import { getGifsByQuery } from './get-gifs-by-query.action'
 
 describe('getGifsByQuery', () => {
