@@ -1,16 +1,15 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 
+import { giphyApi } from '../api/giphy.api';
 import { getGifsByQuery } from './get-gifs-by-query.action';
 
-const giphyApiMock = vi.fn();
-
 vi.mock('../api/giphy.api', () => ({
-  giphyApi: giphyApiMock,
+  giphyApi: vi.fn(),
 }));
 
 describe('getGifsByQuery', () => {
   beforeEach(() => {
-    giphyApiMock.mockResolvedValue({
+    vi.mocked(giphyApi).mockResolvedValue({
       data: {
         data: Array.from({ length: 10 }, (_, index) => ({
           id: `id-${index}`,
@@ -39,11 +38,11 @@ describe('getGifsByQuery', () => {
       width: expect.any(Number),
       height: expect.any(Number),
     });
-    expect(giphyApiMock).toHaveBeenCalledWith('/search', {
+    expect(giphyApi).toHaveBeenCalledWith('/search', {
       params: {
         q: 'goku',
         limit: 10,
       },
     });
   });
-});
+}); 
